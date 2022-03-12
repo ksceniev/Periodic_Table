@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* ambas funçoes tem como objetivo encontrar o valor mais proximo de um dado numero *t* dentro de um array *v* de tamanho *n* */
+/* a primeira dado um array tipo int e a segunda do tipo float */
+
 int iget_closest(int v[], int n, int t){
     int i, lw, hh;
     lw = v[0], hh = v[n-1];

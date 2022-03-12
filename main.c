@@ -48,14 +48,15 @@ int main(){
                     // file doesn't exist
                 
 
-                // a fim de evitar **core dumping** se o vetor ultrapassar N posiçoes;
+                // a fim de evitar **core dumping** se o vetor ultrapassar N posições;
                 for(n = 0; fread(&el, sizeof(el), 1, fp) != 0;){n++;} 
                 printf("n: %i \n\n", n);
+
             */
 
             fp = fopen("tabela.data", "a"); 
             
-            for(i = 0;; i++){
+            for(i = 0;; i++){   /* aqui o for() inicializa com i = n */
                 getchar();
                 
                 printf("Nome do Elemento: ");
@@ -151,7 +152,7 @@ int main(){
                         for(i = 0; fread(&el, sizeof(el), 1, fp) != 0; i++) {vmssat[i] = el.mssat;}
                         size = sizeof(vmssat)/sizeof(float);
 
-                        fx = fget_closest(vmssat, size, fqr);
+                        fx = fget_closest(vmssat, size, fqr); /* função referenciada em functions.h e implementada em get_closest.c */
                         for(n = 0; fread(&el, sizeof(el), 1, fp) != 0;){
                             if(el.mssat == fx){
                                 printf("Nome: %s\nSimbolo: %s\nMassa Atomica: %f\nNumero Atomico: %i\nGrupo: %i", el.nome, el.sb, el.mssat, el.nat, el.gr);
@@ -172,7 +173,7 @@ int main(){
                         for(i = 0; fread(&el, sizeof(el), 1, fp) != 0; i++) {vnat[i] = el.nat;}
                         size = sizeof(vnat)/sizeof(int);
 
-                        ix = iget_closest(vnat, size, iqr);
+                        ix = iget_closest(vnat, size, iqr); /* função referenciada em functions.h e implementada em get_closest.c */
                         for(n = 0; fread(&el, sizeof(el), 1, fp) != 0;){
                             if(el.nat == ix){
                                 printf("Nome: %s\nSimbolo: %s\nMassa Atomica: %f\nNumero Atomico: %i\nGrupo: %i", el.nome, el.sb, el.mssat, el.nat, el.gr);
